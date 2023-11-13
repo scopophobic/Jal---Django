@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h2>Water Meter Reading</h2>
+
+    <form method="post" action="{% url 'meter_input' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>Previous Readings</h3>
+    <ul>
+        {% for reading in readings %}
+            <li>{{ reading.reading }} - {{ reading.timestamp }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+<h1><a href="/">JAL</a></h1> 
+{% if user.is_authenticated %}
+    <small>Welcome, {{ user.username }}!</small>
+    <a href="{% url 'logout' %}">Logout</a>
+    <!-- Add content for authenticated users -->
+{% else %}
+    <small>You are not signed in.</small>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'signup' %}">signup</a>
+    <!-- Add content for non-authenticated users -->
+{% endif %}
+
+
